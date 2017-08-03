@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shaastra Cube</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<style type="text/css">
+		body{
+  background-image: url("bs1.jpg") ;
+}
+
+/* keyframes for rotating animation */
+@-webkit-keyframes spin
+{
+  from { -webkit-transform: rotateX(0deg) rotateY(0deg); }
+  to{ -webkit-transform: rotateX(0deg) rotateY(360deg); }
+}
+@-webkit-keyframes spinning
+{
+  from { -webkit-transform: rotateX(0deg) rotateY(0deg); }
+  to{ -webkit-transform: rotateX(360deg) rotateY(360deg); }
+}
+
+/* scene wrapper */
+.wrapper{
+  height: 300px;
+  margin-top: 200px;
+  position: relative;
+  perspective: 800;
+  perspective-origin: 50% 100px;
+}
+
+/* cube wrapper */
+.cube{
+  position: relative;
+  margin: auto;
+  width: 200px;
+  transform-style: preserve-3d;
+  transition: all 1s linear;
+}
+
+/* outer cube */
+b{
+  position:absolute;
+  width:200px;
+  height:200px;
+  transition: all 1s linear;
+}
+b.back{
+  transform: translateZ(-100px) rotateY(180deg);
+  background-image: url('face3.jpg') ;
+}
+b.right{
+  transform:rotateY(-270deg) translateX(100px);
+  transform-origin: top right;
+  background-image: url('face3.jpg') ;
+}
+b.left{
+  transform:rotateY(270deg) translateX(-100px);
+  transform-origin: center left;
+  background-image: url('face3.jpg') ;
+}
+b.top{
+  transform:rotateX(-90deg) translateY(-100px)   ;
+  transform-origin: top center;
+  background-image: url('face3.jpg') ;
+}
+b.bottom{
+  transform:rotateX(90deg) translateY(100px)  ;
+  transform-origin: bottom center;
+  background-image: url('face3.jpg') ;
+}
+b.front{
+  transform: translateZ(100px);
+  background-image: url('face3.jpg') ;
+}
+
+/* inner upper cube */
+i{
+  position:absolute;
+  top:50px;
+  left:50px;
+  width:100px;
+  height:100px;
+  background:url(face4.jpg);
+  transition: all 1s linear;
+}
+i.front{
+  transform: translateZ(50px);
+}
+i.back{
+  transform: translateZ(-50px) rotateY(180deg);
+}
+i.bottom{
+  transform:rotateX(-90deg) translateY(50px);
+  transform-origin: left bottom;
+}
+i.left{
+  transform:rotateY(270deg) translateX(-50px);
+  transform-origin: center left;
+}
+i.right{
+  transform:rotateY(-270deg) translateX(50px);
+  transform-origin: top right;
+}
+i.top{
+  transform:rotateX(-270deg) translateY(-50px);
+  transform-origin: left top;
+}
+
+/* inner lowerr cube */
+em{
+  position:absolute;
+  top:50px;
+  left:50px;
+  width:100px;
+  height:100px;
+  background:url(face4.jpg);
+  transition: all 1s linear;
+}
+em.front{
+  transform: translateZ(50px);
+}
+em.back{
+  transform: translateZ(-50px) rotateY(180deg);
+}
+em.bottom{
+  transform:rotateX(-90deg) translateY(50px);
+  transform-origin: left bottom;
+}
+em.left{
+  transform:rotateY(270deg) translateX(-50px);
+  transform-origin: center left;
+}
+em.right{
+  transform:rotateY(-270deg) translateX(50px);
+  transform-origin: top right;
+}
+em.top{
+  transform:rotateX(-270deg) translateY(-50px);
+  transform-origin: left top;
+}
+
+/* hover transformations */
+.cube:hover{
+  top:50px;
+}
+.cube:hover b.top{
+  transform: translateZ(100px) rotateX(-210deg);
+  transform-origin: top center;
+}
+.cube:hover b.bottom{
+  transform: translateZ(100px) rotateX(210deg);
+  transform-origin: bottom center;
+}
+.cube:hover i{
+  top:-150px;
+}
+.cube:hover em{
+  top: 250px ;
+}
+
+	</style>
+
+<script type="text/javascript">
+
+function change(argument) {
+    y1=document.getElementById("gk").style.animation =  "spin 4s infinite"   ;
+      }
+
+function changj(argument) {
+    y1=document.getElementById("gk").style.animation =  "spinning 4s infinite"   ;
+      }  
+
+</script>
+</head>
+<body>
+
+<div class="wrapper" id="gs">
+  <div class="cube" id="gk">
+    <b class="front"></b>
+    <b class="back"></b>
+    <b class="top"></b>
+    <b class="bottom"></b>
+    <b class="left"></b>
+    <b class="right"></b>
+    <i class="front"></i>
+    <i class="back"></i>
+    <i class="top"></i>
+    <i class="bottom"></i>
+    <i class="left"></i>
+    <i class="right"></i>
+    <em class="front"></em>
+    <em class="back"></em>
+    <em class="top"></em>
+    <em class="bottom"></em>
+    <em class="left"></em>
+    <em class="right"></em>
+  </div>
+</div>
+
+ <div class="col-sm-offset-5 col-sm-10">
+<button onclick="change()" class="btn btn-success" style="text-align: center;">2D Cube</button>
+<button onclick="changj()" class="btn btn-success" >3D Cube</button>
+</div>
+<h3 style="text-align: center;color: #0B097C">Please hover over the cubes</h3>
+
+</body>
+</html>
